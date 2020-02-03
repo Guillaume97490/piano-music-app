@@ -34,7 +34,14 @@ header p {
   height: 100px;
   width: 100px;
   flex: 1;
+  user-select: none;
 }
+
+.pads > div.active {
+  box-shadow: 0px -18px 30px -11px red;
+}
+
+
 .pad1 {
   background: #60d394;
 }
@@ -66,17 +73,18 @@ header p {
 
 @keyframes jump {
   0% {
-    bottom: 0%;
-    left: 20%;
+    bottom: 10vh;
+    left: 0%;
   }
-  50% {
-    bottom: 50%;
+  /* 50% {
+    bottom: 7vh;
     left: 50%;
-  }
+  } */
 
   100% {
-    bottom: 00%;
-    left: 80%;
+    bottom: 10vh;
+    left: 90%;
+    opacity: 0;
   }
 }
 

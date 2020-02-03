@@ -24,15 +24,21 @@ window.addEventListener("load", () => {
     const bubble = document.createElement("div");
     visual.appendChild(bubble);
     bubble.style.backgroundColor = colors[index];
-    bubble.style.animation = `jump 3s ease`;
+    bubble.style.animation = `jump 10s linear`;
     bubble.addEventListener("animationend", function() {
       visual.removeChild(this);
     });
   };
 
-  var liste = [];
-  var is_record = false;
+
+  let liste = [];
+  let is_record = false;
   document.querySelector("#record").onclick = () => {
+    liste = [];
+    document.querySelector('#record').classList.add('d-none');
+    document.querySelector('#play').classList.add('d-none');
+    document.querySelector('#stop').classList.remove('d-none');
+
     is_record = true;
     document.querySelectorAll(".pads div").forEach((pad, index) => {
       pad.addEventListener(
@@ -56,38 +62,49 @@ window.addEventListener("load", () => {
 
 
   document.querySelector("#stop").onclick = () => {
+    document.querySelector('#stop').classList.add('d-none');
+    document.querySelector('#play').classList.remove('d-none');
+    document.querySelector('#record').classList.remove('d-none');
+
     is_record = false;
     //  console.log(liste)
   };
 
   
   document.querySelector("#play").onclick = () => {
-    console.log(liste);
+
+    // console.log(liste);
 
     for (let i = 0; i < liste.length; i++) {
       const item = liste[i];
+      // console.log(i)
       if (i == 0 ){
-        delai = 0;
+        delay = 0;
       }else {
-        delai = liste[i].temps - liste[i-1].temps;
+        delay += liste[i].temps - liste[i-1].temps ;
       }
-      setTimeout(() => {
-        item.pad.click();
-      }, delai);
+      // console.log(delay);
 
+      setTimeout(() => {
+        item.pad.classList.add("active");
+        item.pad.click();
+
+        setTimeout(() => item.pad.classList.remove("active"), 100);
+
+      }, delay);
     }
 
   };
 });
 
-function songPlay(son){
-  son.play();
-}
 
-function wait(ms) {
-  var start = Date.now(),
-      now = start;
-  while (now - start < ms) {
-    now = Date.now();
-  }
+document.onkeyup = function(e) {
+  shortcuts = ["a","z","e","r","t","y"];
+
+  shortcuts.forEach((shortcut,i) => {
+    if (e.key == shortcut) {
+      document.querySelector(`.pad${i+1}`).click();
+    }
+  });
+
 }

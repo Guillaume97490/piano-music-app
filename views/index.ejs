@@ -1,137 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./public/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+  <link rel="stylesheet" href="./public/style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Tap Music</title>
-  </head>
-  <body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Piano</title>
+</head>
 
-    <div id="menu">
-      <button id="bar" class="btn setting-btn" data-toggle="collapse" aria-expanded="false" data-target="#content" aria-controls="content" class="">
-        <i class="fas fa-cog"></i>
-      </button>
-      <div id="content" class="collapse">
-        <form class="pl-2" action="/update" method="post" enctype="multipart/form-data">
+<body>
 
-          <div class="row mr-0">
-            <div class="col-3">
-              <select class="custom-select" name="slot" id="song-slot-input" required>
-                <option disabled selected value="">Choix...</option>
-                <% for(let i=0; i<sounds.length; i++) {%>
-                  <option value="<%= i+1 %>"><%= i+1 %></option>
-                  <% } %>
-              </select>
-              
-            </div>
-            
-            <div class="col-7">
-              <input type="file" class="" name="file1" id="file-input" required>
-            </div>
+  <div id="menu">
+    <button id="bar" class="btn setting-btn" data-toggle="collapse" aria-expanded="false" data-target="#content"
+      aria-controls="content" class="">
+      <i class="fas fa-cog"></i>
+    </button>
+    <div id="content" class="collapse">
+      <form class="pl-2" action="/update" method="post" enctype="multipart/form-data">
+
+        <div class="row mr-0">
+          <div class="col-3">
+            <select class="custom-select" name="slot" id="song-slot-input" required>
+              <option disabled selected value="">Choix...</option>
+              <% for(let i=0; i<sounds.length; i++) {%>
+              <option value="<%= i+1 %>"><%= i+1 %></option>
+              <% } %>
+            </select>
+
           </div>
 
-          <!-- <div class="row mr-0">
-            <div class="col-2">
-              <span>Son 2 :</span>
-            </div>
-            <div class="col-8">
-              <input type="file" class="" name="file2" id="file2" >
-            </div>
+          <div class="col-7">
+            <input type="file" class="" name="file1" id="file-input" required>
           </div>
+        </div>
 
-          <div class="row mr-0">
-            <div class="col-2">
-              <span>Son 3 :</span>
-            </div>
-            <div class="col-8">
-              <input type="file" class="" name="file3" id="file3" >
-            </div>
-          </div>
-
-          <div class="row mr-0">
-            <div class="col-2">
-              <span>Son 4 :</span>
-            </div>
-            <div class="col-8">
-              <input type="file" class="" name="file4" id="file4" >
-            </div>
-          </div>
-
-          <div class="row mr-0">
-            <div class="col-2">
-              <span>Son 5 :</span>
-            </div>
-            <div class="col-8">
-              <input type="file" class="" name="file5" id="file5" >
-            </div>
-          </div>
-
-          <div class="row mr-0">
-            <div class="col-2">
-              <span>Son 6 :</span>
-            </div>
-            <div class="col-8">
-              <input type="file" class="" name="file6" id="file6" >
-            </div>
-          </div> -->
-
-          <!-- <div>
-            <span>emplacement 1 <input type="file" class="form-control-file" name="file1" id="" > </span>
-          </div>
-
-          <div>
-              <span>emplacement 2 <input type="file" name="file2" id=""> </span>
-          </div> -->
-
-          <!-- <div>
-              <span>emplacement 3 <input type="file" name="file3" id=""> </span>
-          </div>
-
-          <div>
-              <span>emplacement 4 <input type="file" name="file4" id=""> </span>
-          </div>
-
-          <div>
-              <span>emplacement 5 <input type="file" name="file4" id=""> </span>
-          </div>
-
-          <div>
-              <span>emplacement 6 <input type="file" name="file5" id=""> </span>
-          </div> -->
-          <div class="text-right pb-2 pr-2">
-            <button class="btn btn-success" type="submit">Enregistrer</button>
-          </div>
-        </form>
-      </div>
+        <div class="text-right pb-2 pr-2">
+          <button class="btn btn-success" type="submit">Enregistrer</button>
+        </div>
+      </form>
     </div>
+  </div>
 
 
-    <section class="app">
+  <section class="app">
 
-      <header>
-        <h1>Tap Music</h1>
-        <p>Create sounds with just one tap</p>
-      </header>
-      <div class="visual"></div>
-                    <button id="record">Enregistrer</button>
-      <button id="stop">Stop</button>
-      <button id="play">play</button>
-      <div class="pads">
-        <% for(let sound of sounds) {%>
-          <div class="pad<%=i++%> d-flex justify-content-center align-items-center">
-            <audio src="../public/sounds/<%=sound.nom%>" class="sound"></audio>
-            <p class="small"><%= sound.nom %></p>
-          </div>
-        <%}%>
+    <header>
+      <h1>Piano</h1>
+      <!-- <p>Create sounds with just one tap</p> -->
+    </header>
+    <div class="visual"></div>
+    <div class="container">
+      <div class="row text-center">
+      <div class="col-lg-4">
+        <button class="btn-warning btn" id="record">Enregistrer</button>
+      </div>
+      <div class="col-lg-4">
+        <button class="btn-danger btn col-lg-4 d-none" id="stop">Arreter</button>
+      </div>
+      <div class="col-lg-4">
+        <button class="btn-success btn col-lg-4 d-none" id="play">Lire</button>
+      </div>
+
+    </div>
+    </div>
+    
+    <div class="pads">
+      <% let shortcuts = ["a","z","e","r","t","y"] %>
+      <% for(let sound of sounds) {%>
+      <div class="pad<%=i++%> d-flex justify-content-center flex-column align-items-center">
+        <audio src="../public/sounds/<%=sound.nom%>" class="sound"></audio>
+        <p class="small"><%= sound.nom %></p>
+        <p class="font-weight-bold h"><%= shortcuts[i-2] %></p>
+        
+      </div>
+      <%}%>
 
       </div>
     </section>

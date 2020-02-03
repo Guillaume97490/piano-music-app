@@ -1,12 +1,12 @@
 {
-  "name": "music",
-  "version": "1.0.0",
-  "description": "",
+  "name": "piano-music-app",
+  "version": "1.0.1",
+  "description": "Application web - Piano musical en Node JS",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Guillaume",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -16,5 +16,14 @@
     "fs": "0.0.1-security",
     "mongoose": "^5.8.6",
     "nodejs": "0.0.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guillaume97490/piano-music-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Guillaume97490/piano-music-app/issues"
+  },
+  "homepage": "https://github.com/Guillaume97490/piano-music-app#readme"
 }
