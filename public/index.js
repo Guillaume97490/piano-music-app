@@ -1,3 +1,22 @@
+// const synth = new Tone.FMSynth().toMaster();
+
+const synth = new Tone.Synth(
+  {
+    "oscillator": {
+        "type": "fatcustom",
+      	"partials" : [0.2, 1, 0, 0.5, 0.1],
+      	"spread" : 40,
+      	"count" : 3
+    },
+    "envelope": {
+        "attack": 0.001,
+        "decay": 1.6,
+        "sustain": 0,
+        "release": 1.6
+    }
+}
+).toDestination();
+
 window.addEventListener("load", () => {
   const sounds = document.querySelectorAll(".sound");
   const pads = document.querySelectorAll(".pads div");
@@ -13,8 +32,10 @@ window.addEventListener("load", () => {
 
   pads.forEach((pad, index) => {
     pad.addEventListener("click", function() {
-      sounds[index].currentTime = 0;
-      sounds[index].play();
+      // sounds[index].currentTime = 0;
+      gamme = ["C","D","E","F","G","A","B"];
+      synth.triggerAttackRelease(gamme[index]+'4', 0.5)
+      // sounds[index].play();
       createBubble(index);
     });
   });
@@ -99,7 +120,7 @@ window.addEventListener("load", () => {
 
 
 document.onkeyup = function(e) {
-  shortcuts = ["a","z","e","r","t","y"];
+  shortcuts = ["a","z","e","r","t","y","u"];
 
   shortcuts.forEach((shortcut,i) => {
     if (e.key == shortcut) {
