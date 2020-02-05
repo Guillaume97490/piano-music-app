@@ -18,7 +18,7 @@
   <div id="menu">
     <button id="bar" class="btn setting-btn" data-toggle="collapse" aria-expanded="false" data-target="#content"
       aria-controls="content" class="">
-      <i class="fas fa-cog"></i>
+      <i class="fas fa-cog text-white"></i>
     </button>
     <div id="content" class="collapse">
       <form class="pl-2" action="/update" method="post" enctype="multipart/form-data">
@@ -47,7 +47,7 @@
   </div>
 
 
-  <section class="app">
+  <section class="app text-white">
 
     <header>
       <h1>Piano</h1>
@@ -69,34 +69,75 @@
     </div>
     </div>
 
-
-    <div>
-
-      <div class="form-group">
-        Attack
-        <input class="form-control" min="0.01" value="0.01" step="0.01" max="20" type="range" id="attack-input">
+    <div class="container">
+      <div id="envelope" class="row"><div class="col-12">Envelope :</div> 
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              Attack :
+              <input class="form-control sliderSettings" min="0.01" value="0.01" step="0.01" max="2" type="range" id="attack-input">
+            </div>
+          </div>
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              Decay :
+              <input class="form-control sliderSettings custom-slider" min="0.01" value="1.6" step="0.01" max="20" type="range" id="decay-input">
+            </div>
+  
+          </div>
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              Sustain :
+              <input class="form-control sliderSettings" min="0" value="0" step="0.01" max="1" type="range" id="sustain-input">
+            </div>
+  
+          </div>
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              Release :
+              <input class="form-control sliderSettings" min="0" value="1.6" step="0.01" max="200" type="range" id="release-input">
+            </div>
+  
+          </div>
+  
+          
+      </div>
+      <div id="oscillator" class="row"> <div class="col-12">Oscillator :</div> 
+        <div class="col-md-3">
+          <div class="form-group">
+            Count :
+            <input class="form-control sliderSettings" min="1" value="1.6" step="0.01" max="10" type="range" id="count-input">
+          </div>
+        </div>
+  
+        <div class="col-md-3">
+          <div class="form-group">
+            Spread :
+            <input class="form-control sliderSettings" min="0" value="40" step="0.01" max="20000" type="range" id="spread-input">
+          </div>
+        </div>
+  
       </div>
 
+    </div>
 
-      <div class="form-group">
-        Decay
-        <input class="form-control" min="0.01" value="1.6" step="0.01" max="20" type="range" id="decay-input">
-      </div>
 
-      <div class="form-group">
-        Sustain
-        <input class="form-control" min="0" value="0" step="0.01" max="1" type="range" id="sustain-input">
-      </div>
 
-      <div class="form-group">
-        Release
-        <input class="form-control" min="0" value="1.6" step="0.01" max="200" type="range" id="release-input">
-      </div>
+
+
+
+
+
+
+
 
 
       
 
-      <ul class="piano d-none d-md-block text-center">
+      <ul class="piano d-none d-md-block text-secondary text-center">
         <li class="white C">Do</li>
         <li class="black CS"></li>
         <li class="white D">Ré</li>

@@ -1,8 +1,3 @@
-// const synth = new Tone.FMSynth().toMaster();
-let attack = 0.01;
-let decay = 1.6;
-let sustain = 0;
-let release = 1.6;
 
 let synth = new Tone.Synth(
   {
@@ -13,10 +8,10 @@ let synth = new Tone.Synth(
       "count": 3
     },
     "envelope": {
-      "attack": attack,
-      "decay": decay,
-      "sustain": sustain,
-      "release": release
+      "attack": 0.01,
+      "decay": 1.6,
+      "sustain": 0,
+      "release": 1.6
     }
   }
 ).toDestination();
@@ -35,28 +30,16 @@ window.addEventListener("load", () => {
     "#60c2d3"
   ];
 
-  $("#attack-input").change(function () {
-    attack = Number($("#attack-input").val());
-    synth.envelope.attack = attack;
-  });
+  $(".sliderSettings").change((e) => {
+    setting = $(e.currentTarget).attr('id').split('-')[0];
+    categorySetting = $(e.currentTarget).parents().parents().parents().attr('id')
+    console.log(categorySetting)
+    synth[categorySetting][setting] = Number($(`#${setting}-input`).val()); 
 
-  $("#decay-input").change(function () {
-    decay = Number($("#decay-input").val());
-    synth.envelope.decay = decay;
-  });
+    
+  })
 
-  $("#sustain-input").change(function () {
-    sustain = Number($("#sustain-input").val());
-    synth.envelope.sustain = sustain;
-  });
-
-  $("#release-input").change(function () {
-    release = Number($("#release-input").val());
-    synth.envelope.release = release;
-  });
-
-
-
+  
   piano.forEach((key, index) => {
     key.addEventListener("click", function () {
       gamme = ["C", "D", "E", "F", "G", "A", "B"];
